@@ -20,19 +20,17 @@ window.PORTFOLIO_CONFIG = {
   shortName: "YN", // Short brand shown in the header. Set to "" to use name.
   pageTitle: "YN — My Portfolio",
   description: "Explore projects, experiments, and work by me.",
-  themeColor: "#0b0d10",
-
   // Theme — change these values to restyle the whole portfolio.
   // Use hex colors (for example, "#5498FF").
   theme: {
-  canvas: "#07120e",        // Deep pine green
-  surface: "#0f1e18",       // Dark forest surface
-  line: "#1d382c",          // Soft moss divider line
-  muted: "#8ca89a",         // Muted sage secondary text
-  accent: "#e5b869",        // Warm golden yellow
-  foreground: "#f2f7f4",    // Soft mint-tinted white
-  selection: "#34d399"      // Vibrant mint green
-},
+    canvas: "#07120e",       // Deep pine green
+    surface: "#0f1e18",      // Dark forest surface
+    line: "#1d382c",         // Soft moss divider line
+    muted: "#8ca89a",        // Muted sage secondary text
+    accent: "#e5b869",       // Warm golden yellow
+    foreground: "#f2f7f4",   // Soft mint-tinted white
+    selection: "#34d399"     // Vibrant mint green
+  },
   
   // Hero section
   role: "Role · Role · Role",

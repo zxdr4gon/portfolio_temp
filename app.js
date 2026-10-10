@@ -6,29 +6,22 @@
 
   if (!config || typeof config !== "object") {
     document.body.innerHTML = `
-      <main style="max-width:700px;margin:4rem auto;padding:1.5rem;font-family:system-ui;color:white;background:#0b0d10">
+      <main>
         <h1>Portfolio configuration not found</h1>
         <p>Make sure <code>config.js</code> is in the same folder as <code>index.html</code>.</p>
       </main>`;
     return;
   }
 
-  const theme = {
-    canvas: "#0b0d10",
-    surface: "#111419",
-    line: "#252a32",
-    muted: "#9199a6",
-    accent: "#5498FF",
-    foreground: "#f8fafc",
-    selection: "#a3e635",
-    ...(config.theme || {})
-  };
+  const themeKeys = ["canvas", "surface", "line", "muted", "accent", "foreground", "selection"];
+  const theme = config.theme;
+  const isValidHex = (value) => typeof value === "string" && /^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(value);
+  if (!theme || !themeKeys.every((key) => isValidHex(theme[key]))) {
+    document.body.innerHTML = "<main><h1>Invalid theme configuration</h1><p>Set all seven theme colors in config.js using valid 3- or 6-digit hex values.</p></main>";
+    return;
+  }
   const root = document.documentElement;
-  Object.entries(theme).forEach(([key, value]) => {
-    if (typeof value === "string" && /^#[0-9a-f]{3,8}$/i.test(value)) {
-      root.style.setProperty(`--color-${key}`, value);
-    }
-  });
+  themeKeys.forEach((key) => root.style.setProperty(`--color-${key}`, theme[key]));
 
   const $ = (id) => document.getElementById(id);
   const safeText = (value, fallback = "") =>
@@ -51,7 +44,7 @@
   const description = document.querySelector('meta[name="description"]');
   if (description) description.content = safeText(config.description, `Portfolio of ${name}`);
   const themeColor = document.querySelector('meta[name="theme-color"]');
-  if (themeColor) themeColor.content = safeText(config.theme?.canvas || config.themeColor, "#0b0d10");
+  if (themeColor) themeColor.content = theme.canvas;
 
   $("brand-name").textContent = brand;
   $("brand-link").setAttribute("aria-label", `${name}, home`);
@@ -115,6 +108,10 @@
     socialsContainer.append(mail);
   }
 
+  const placeholderColor = (value) => value.slice(1);
+  const placeholderUrl = (title) =>
+    `https://placehold.co/960x600/${placeholderColor(theme.surface)}/${placeholderColor(theme.accent)}?text=${encodeURIComponent(title)}`;
+
   const grid = $("project-grid");
   grid.replaceChildren();
   const projects = Array.isArray(config.projects) ? config.projects : [];
@@ -135,7 +132,7 @@
 
     const img = document.createElement("img");
     const imageUrl = safeText(project.image);
-    img.src = imageUrl || `https://placehold.co/960x600/151a21/a3e635?text=${encodeURIComponent(project.title)}`;
+    img.src = imageUrl || placeholderUrl(project.title);
     img.alt = safeText(project.imageAlt, `Screenshot of ${project.title}`);
     img.width = 960;
     img.height = 600;
@@ -143,12 +140,12 @@
     img.className = "h-full w-full object-cover";
     img.onerror = () => {
       img.onerror = null;
-      img.src = `https://placehold.co/960x600/151a21/a3e635?text=${encodeURIComponent(project.title)}`;
+      img.src = placeholderUrl(project.title);
     };
     imageFrame.append(img);
 
     const overlay = document.createElement("div");
-    overlay.className = "project-overlay absolute inset-0 flex flex-col justify-end bg-black/30 p-6 sm:p-8";
+    overlay.className = "project-overlay absolute inset-0 flex flex-col justify-end bg-canvas/45 p-6 sm:p-8";
     overlay.setAttribute("aria-hidden", "true");
 
     const category = document.createElement("span");
