@@ -15,11 +15,12 @@
       theme: {
         extend: {
           colors: {
-            canvas: "#0b0d10",  // Main background color (Black)
-            surface: "#111419",  // Card background color (?Black)
-            line: "#252a32",     // Border color (Dark Bluish Grey)
-            muted: "#9199a6",    // Secondary/muted text color (Light Bluish Grey)
-            accent: "#5498FF"    // Accent highlight color (Light Blue)
+            foreground: "var(--color-foreground)",
+            canvas: "var(--color-canvas)",  // Main background color
+            surface: "var(--color-surface)",  // Card background
+            line: "var(--color-line)",     // Border color
+            muted: "var(--color-muted)",    // Secondary text
+            accent: "var(--color-accent)"    // Accent highlight color
           },
           fontFamily: {
             sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
@@ -33,16 +34,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    :root { color-scheme: dark; }
-    body { background: #0b0d10; }
-    ::selection { color: #0b0d10; background: #a3e635; }
+    :root { color-scheme: dark; --color-canvas: #0b0d10; --color-surface: #111419; --color-line: #252a32; --color-muted: #9199a6; --color-accent: #5498FF; --color-foreground: #f8fafc; --color-selection: #a3e635; }
+    body { background: var(--color-canvas); }
+    ::selection { color: var(--color-canvas); background: var(--color-selection); }
     .project-card img { transition: transform 500ms ease, filter 500ms ease; }
     .project-overlay { opacity: 0; transition: opacity 300ms ease; }
     .project-card:hover img, .project-card:focus-visible img {
       transform: scale(1.045); filter: brightness(.55);
     }
     .project-card:hover .project-overlay, .project-card:focus-visible .project-overlay { opacity: 1; }
-    .project-card:focus-visible { outline: 2px solid #a3e635; outline-offset: 5px; }
+    .project-card:focus-visible { outline: 2px solid var(--color-selection); outline-offset: 5px; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -57,7 +58,7 @@
   <script src="./app.js" defer></script>
 </head>
 
-<body class="min-h-screen bg-canvas font-sans text-white antialiased">
+<body class="min-h-screen bg-canvas font-sans text-foreground antialiased">
   <header class="border-b border-line">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-12" aria-label="Main navigation">
       <a id="brand-link" href="#home" class="text-lg font-bold tracking-tight" aria-label="Home">
@@ -65,11 +66,11 @@
       </a>
 
       <div class="hidden items-center gap-8 text-sm text-muted md:flex">
-        <a href="#projects" class="transition hover:text-white">Projects</a>
-        <a href="#about" class="transition hover:text-white">About</a>
-        <a id="nav-github" class="transition hover:text-white" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a id="nav-linkedin" class="transition hover:text-white" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a id="nav-instagram" class="transition hover:text-white" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a href="#projects" class="transition hover:text-foreground">Projects</a>
+        <a href="#about" class="transition hover:text-foreground">About</a>
+        <a id="nav-github" class="transition hover:text-foreground" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a id="nav-linkedin" class="transition hover:text-foreground" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a id="nav-instagram" class="transition hover:text-foreground" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
       </div>
 
       <a id="header-contact" class="rounded-full border border-line px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">
@@ -124,7 +125,7 @@
         <p id="contact-kicker" class="mb-4 text-sm font-medium text-accent">02 / Contact</p>
         <h2 id="contact-title" class="max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Have an idea? <span class="text-muted">Let's connect.</span></h2>
         <p id="contact-copy" class="mt-5 max-w-lg text-sm leading-7 text-muted sm:text-base">Interested in collaborating or just connecting? My inbox is open.</p>
-        <a id="contact-button" class="mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-canvas transition hover:bg-lime-300">
+        <a id="contact-button" class="mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-canvas transition hover:bg-accent">
           Say hello <span aria-hidden="true">↗</span>
         </a>
       </div>

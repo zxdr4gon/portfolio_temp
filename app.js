@@ -13,6 +13,23 @@
     return;
   }
 
+  const theme = {
+    canvas: "#0b0d10",
+    surface: "#111419",
+    line: "#252a32",
+    muted: "#9199a6",
+    accent: "#5498FF",
+    foreground: "#f8fafc",
+    selection: "#a3e635",
+    ...(config.theme || {})
+  };
+  const root = document.documentElement;
+  Object.entries(theme).forEach(([key, value]) => {
+    if (typeof value === "string" && /^#[0-9a-f]{3,8}$/i.test(value)) {
+      root.style.setProperty(`--color-${key}`, value);
+    }
+  });
+
   const $ = (id) => document.getElementById(id);
   const safeText = (value, fallback = "") =>
     typeof value === "string" && value.trim() ? value.trim() : fallback;
@@ -34,7 +51,7 @@
   const description = document.querySelector('meta[name="description"]');
   if (description) description.content = safeText(config.description, `Portfolio of ${name}`);
   const themeColor = document.querySelector('meta[name="theme-color"]');
-  if (themeColor) themeColor.content = safeText(config.themeColor, "#0b0d10");
+  if (themeColor) themeColor.content = safeText(config.theme?.canvas || config.themeColor, "#0b0d10");
 
   $("brand-name").textContent = brand;
   $("brand-link").setAttribute("aria-label", `${name}, home`);
@@ -87,14 +104,14 @@
     link.href = safeUrl(social.url);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.className = "transition hover:text-white";
+    link.className = "transition hover:text-foreground";
     socialsContainer.append(link);
   });
   if (email) {
     const mail = document.createElement("a");
     mail.textContent = "Email ↗";
     mail.href = `mailto:${email}`;
-    mail.className = "transition hover:text-white";
+    mail.className = "transition hover:text-foreground";
     socialsContainer.append(mail);
   }
 
@@ -148,14 +165,14 @@
     tags.className = "mt-4 flex flex-wrap gap-2";
     (Array.isArray(project.tags) ? project.tags : []).forEach((tag) => {
       const chip = document.createElement("span");
-      chip.className = "rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs";
+      chip.className = "rounded-full border border-foreground/20 bg-foreground/10 px-3 py-1 text-xs";
       chip.textContent = `#${String(tag).replace(/^#/, "")}`;
       tags.append(chip);
     });
     overlay.append(tags);
 
     const view = document.createElement("span");
-    view.className = "mt-5 text-sm font-medium text-white";
+    view.className = "mt-5 text-sm font-medium text-foreground";
     view.textContent = "View project ↗";
     overlay.append(view);
     imageFrame.append(overlay);

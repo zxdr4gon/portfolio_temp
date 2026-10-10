@@ -22,6 +22,18 @@ window.PORTFOLIO_CONFIG = {
   description: "Explore projects, experiments, and work by me.",
   themeColor: "#0b0d10",
 
+  // Theme — change these values to restyle the whole portfolio.
+  // Use hex colors (for example, "#5498FF").
+  theme: {
+    canvas: "#0b0d10",       // Page background
+    surface: "#111419",      // Contact panel and project surfaces
+    line: "#252a32",         // Borders and dividers
+    muted: "#9199a6",        // Secondary text
+    accent: "#5498FF",       // Highlights, links, and buttons
+    foreground: "#f8fafc",   // Main text and white-based utilities
+    selection: "#a3e635"     // Selected text and keyboard focus
+  },
+
   // Hero section
   role: "Role · Role · Role",
   headlineStart: "Turning ideas into",
