@@ -2,7 +2,7 @@
 
 A static portfolio template built with HTML, Tailwind CSS CDN, and JavaScript. It works on GitHub Pages.
 
-## [Demo Site](https://zxdr4gon.github.io/portfolio_temp/)
+## [Example Site (My Portfolio)](https://zxdr4gon.github.io/portfolio/)
 
 ## Files
 
