@@ -15,7 +15,8 @@ A static portfolio template built with HTML, Tailwind CSS CDN, and JavaScript. I
 
 1. Open `config.js`.
 2. Replace `Your Name`, the short brand, bio, headings, email, and social URLs.
-3. Update the `projects` array. Each project supports:
+3. Change the hex codes in the `theme` to configure the theme accordingly
+4. Update the `projects` array. Each project supports:
    - `title`: project name
    - `description`: short summary under the card
    - `category`: small label in the hover overlay
@@ -23,8 +24,8 @@ A static portfolio template built with HTML, Tailwind CSS CDN, and JavaScript. I
    - `image`: screenshot path, e.g. `images/weather-app.png`
    - `imageAlt`: accessible image description
    - `tags`: technology names, e.g. `["Python", "Flask"]`
-4. Put each screenshot in the `images/` folder. Use exact filename capitalization. If you leave `image` empty or the image cannot load, a placeholder is used.
-5. Save and commit the changes.
+5. Put each screenshot in the `images/` folder. Use exact filename capitalization. If you leave `image` empty or the image cannot load, a placeholder is used.
+6. Save and commit the changes.
 
 You can add as many project objects as you want. To remove a card, remove that project object from the array. Keep commas between objects, but do not leave a comma after the last object if you want maximum compatibility with editors.
 
