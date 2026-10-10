@@ -1,6 +1,6 @@
 # [TEMPLATE] Developer Portfolio
 
-A static portfolio template built with HTML, Tailwind CSS CDN, and vanilla JavaScript. It works on GitHub Pages and does not need a build step.
+A static portfolio template built with HTML, Tailwind CSS CDN, and JavaScript. It works on GitHub Pages.
 
 ## Files
 
