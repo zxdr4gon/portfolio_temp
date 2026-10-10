@@ -3,10 +3,11 @@
   =======================
 
   START HERE
-  1. Replace the sample text marked "REPLACE".
-  2. Choose a theme by changing selectedTheme below.
-  3. Replace the sample project links and image filenames.
-  4. Remove any social links you do not use.
+  1. Replace the sample text marked "[REPLACE]".
+  2. Make sure you remove the '[REPLACE]' tag as well
+  3. Choose a theme by changing selectedTheme below.
+  4. Replace the sample project links and image filenames.
+  5. Remove any social links you do not use.
 
   You should not need to edit index.html or app.js to personalize the site.
   Keep the setting names below unchanged unless you also update app.js.
@@ -57,18 +58,23 @@ const PORTFOLIO_THEME_PRESETS = {
     accent: "#d97706",
     foreground: "#292524",
     selection: "#fde68a"
+  },
+  // CHANGE HEX VALUES HERE TO USE CUSTOM COLORS
+  custom: {
+    canvas: "#fbf8f3",
+    surface: "#f3ede3",
+    line: "#e2d7c5",
+    muted: "#8c7e6c",
+    accent: "#d97706",
+    foreground: "#292524",
+    selection: "#fde68a"
   }
 };
 
-// CHANGE THIS to: "minimal", "ocean", "forest", or "warm".
-const selectedTheme = "warm";
+// To use CUSTOM, change the hex codes above in the 'custom' list and set below line to "custom"
+const selectedTheme = "forest"; // CHANGE THIS to: "minimal", "ocean", "forest", or "warm".
 
-// ADVANCED (optional): replace null with your own object containing all seven
-// color keys: canvas, surface, line, muted, accent, foreground, selection.
-// Example: { canvas: "#ffffff", surface: "#f4f4f5", line: "#e4e4e7",
-//            muted: "#71717a", accent: "#2563eb", foreground: "#18181b",
-//            selection: "#bfdbfe" }
-const customTheme = null;
+const customTheme = null; // Ignore line
 const chosenTheme =
   customTheme || PORTFOLIO_THEME_PRESETS[selectedTheme] || PORTFOLIO_THEME_PRESETS.warm;
 
@@ -78,19 +84,19 @@ window.PORTFOLIO_CONFIG = {
      Replace the sample values with your own details.
      shortName is the small brand shown in the header. Use "" to use your name.
   ------------------------------------------------------------------------ */
-  name: "REPLACE: Your Name",
-  shortName: "YN",
-  pageTitle: "REPLACE: Your Name — Portfolio",
-  description: "REPLACE: A short description of your portfolio.",
+  name: "[REPLACE] Your Name",
+  shortName: "[REPLACE] Nickname (OR SET to '' (empty)",
+  pageTitle: "[REPLACE] Your Name — Portfolio",
+  description: "[REPLACE] A short description of your portfolio.",
 
   /* ------------------------------------------------------------------------
      3. HERO SECTION
      This is the first text visitors see on your portfolio.
   ------------------------------------------------------------------------ */
-  role: "REPLACE: Developer · Designer · Creator",
+  role: "[REPLACE] Developer · Designer · Creator",
   headlineStart: "Turning ideas into",
   headlineAccent: "things that work.",
-  bio: "REPLACE: Write 1–3 sentences about yourself and what you enjoy building.",
+  bio: "[REPLACE] Write 1–3 sentences about yourself or what you enjoy building.",
   heroButton: "Explore my work",
   gallerySubtitle: "Projects, experiments & ideas",
 
@@ -120,11 +126,12 @@ window.PORTFOLIO_CONFIG = {
      Replace the example email and URLs. Remove any social entries you don't
      use. Use full URLs beginning with https://.
   ------------------------------------------------------------------------ */
-  email: "REPLACE: your.email@example.com",
+  email: "[REPLACE] youremail@example.com",
   socials: [
     { label: "GitHub", url: "https://github.com/YOUR-USERNAME" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/YOUR-PROFILE" },
     { label: "Instagram", url: "https://www.instagram.com/YOUR-HANDLE" }
+    // To add another social, create an entry
     // Example: { label: "YouTube", url: "https://www.youtube.com/@YOUR-USERNAME" }
   ],
 
@@ -147,43 +154,45 @@ window.PORTFOLIO_CONFIG = {
   projects: [
     {
       // EXAMPLE 1: Python or data-analysis project
-      title: "REPLACE: Python Data Project",
-      description: "REPLACE: Describe the question this project explores and what you learned.",
+      title: "[REPLACE] Python Data Project",
+      description: "[REPLACE] Describe the question this project explores and what you learned.",
       category: "Data project",
       url: "https://github.com/YOUR-USERNAME/YOUR-DATA-PROJECT",
-      image: "images/REPLACE-data-project.png",
-      imageAlt: "REPLACE: Screenshot showing the data project",
+      image: "images/[REPLACE]-data-project.png",
+      imageAlt: "[REPLACE] Screenshot showing the data project",
       tags: ["Python", "Data"]
     },
     {
       // EXAMPLE 2: Website or web application
-      title: "REPLACE: Web Application",
-      description: "REPLACE: Explain what the app does and who it helps.",
+      title: "[REPLACE] Web Application",
+      description: "[REPLACE] Explain what the app does and who it helps.",
       category: "Web application",
       url: "https://github.com/YOUR-USERNAME/YOUR-WEB-APP",
-      image: "images/REPLACE-web-app.png",
-      imageAlt: "REPLACE: Screenshot of the web application",
+      image: "images/[REPLACE]-web-app.png",
+      imageAlt: "[REPLACE] Screenshot of the web application",
       tags: ["JavaScript", "HTML", "CSS"]
     },
     {
       // EXAMPLE 3: Game or interactive project
-      title: "REPLACE: Small Game",
-      description: "REPLACE: Describe the game and one interesting feature you built.",
+      title: "[REPLACE] Small Game",
+      description: "[REPLACE] Describe the game and one interesting feature you built.",
       category: "Game",
       url: "https://github.com/YOUR-USERNAME/YOUR-GAME",
-      image: "images/REPLACE-game.png",
-      imageAlt: "REPLACE: Screenshot of the game",
+      image: "images/[REPLACE]-game.png",
+      imageAlt: "[REPLACE] Screenshot of the game",
       tags: ["Game", "JavaScript"]
     },
     {
       // EXAMPLE 4: Command-line tool or library (a live demo is not required)
-      title: "REPLACE: Developer Tool",
-      description: "REPLACE: Explain what the tool automates or makes easier.",
+      title: "[REPLACE] Developer Tool",
+      description: "[REPLACE] Explain what the tool automates or makes easier.",
       category: "Developer tool",
       url: "https://github.com/YOUR-USERNAME/YOUR-TOOL",
-      image: "images/REPLACE-tool.png",
-      imageAlt: "REPLACE: Screenshot or illustration of the tool",
+      image: "images/[REPLACE]-tool.png",
+      imageAlt: "[REPLACE] Screenshot or illustration of the tool",
       tags: ["Python", "CLI"]
     }
+    // COPY-PASTE an entry here to showcase more projects
+    // MAKE SURE YOU REMEMBER A COMMA (,) AFTER EACH ENTRY
   ]
 };
