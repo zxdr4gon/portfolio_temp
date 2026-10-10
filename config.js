@@ -23,14 +23,14 @@ window.PORTFOLIO_CONFIG = {
   // Theme — change these values to restyle the whole portfolio.
   // Use hex colors (for example, "#5498FF").
   theme: {
-    canvas: "#07120e",       // Deep pine green
-    surface: "#0f1e18",      // Dark forest surface
-    line: "#1d382c",         // Soft moss divider line
-    muted: "#8ca89a",        // Muted sage secondary text
-    accent: "#e5b869",       // Warm golden yellow
-    foreground: "#f2f7f4",   // Soft mint-tinted white
-    selection: "#34d399"     // Vibrant mint green
-  },
+  canvas: "#fbf8f3",        // Warm cream page background
+  surface: "#f3ede3",       // Sand-colored surfaces
+  line: "#e2d7c5",          // Muted beige dividers
+  muted: "#8c7e6c",         // Warm taupe secondary text
+  accent: "#d97706",        // Warm amber/terracotta
+  foreground: "#292524",    // Soft espresso black
+  selection: "#fde68a"      // Soft amber selection highlight
+},
   
   // Hero section
   role: "Role · Role · Role",
