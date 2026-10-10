@@ -23,42 +23,116 @@
    ALL seven colors shown in the examples. Leave it as null to use a preset.
 */
 const PORTFOLIO_THEME_PRESETS = {
-  minimal: {
-    canvas: "#f5f5f4",       // Main page background
-    surface: "#e7e5e4",      // Cards and image backgrounds
-    line: "#d6d3d1",         // Borders and dividers
-    muted: "#78716c",        // Secondary text
-    accent: "#57534e",       // Highlight color
-    foreground: "#1c1917",   // Main text
-    selection: "#d6d3d1"     // Text selection highlight
+  // Deep space vibe with high-contrast electric indigo & purple highlights
+  cyberpunk: {
+    canvas: "#0d0e15",        // Deep space night
+    surface: "#181926",       // Elevated dark panel
+    line: "#2e3146",          // Muted grid line
+    muted: "#89b4fa",         // Soft periwinkle
+    accent: "#cba6f7",        // Neon violet accent
+    foreground: "#cdd6f4",    // Crisp light text
+    selection: "#f5e0dc"      // Warm glow highlight
   },
-  ocean: {
-    canvas: "#eff6ff",
-    surface: "#dbeafe",
-    line: "#bfdbfe",
-    muted: "#526985",
-    accent: "#2563eb",
-    foreground: "#172554",
-    selection: "#bfdbfe"
+
+  // Retro 80s synthwave / dusk sunset feel
+  sunsetGlow: {
+    canvas: "#181124",        // Velvet dusk sky
+    surface: "#2a1b3d",       // Deep plum surface
+    line: "#442852",          // Soft magenta divider
+    muted: "#a885a8",         // Muted mauve
+    accent: "#ff6b6b",        // Coral pink highlight
+    foreground: "#f7d6e0",    // Creamy blush text
+    selection: "#e056fd"      // Electric orchid selection
   },
-  forest: {
-    canvas: "#f0f5ef",
-    surface: "#dfeadd",
-    line: "#c4d6c0",
-    muted: "#60745e",
-    accent: "#34734a",
-    foreground: "#1e3323",
-    selection: "#c4d6c0"
+
+  // Botanical / matcha tea inspired natural palette
+  matchaStudio: {
+    canvas: "#f4f6f0",        // Soft steamy white
+    surface: "#e3e8dc",       // Creamy matcha foam
+    line: "#c8d3bc",          // Sage leaf border
+    muted: "#6e7e65",         // Mossy secondary text
+    accent: "#3d5a36",        // Deep green tea leaves
+    foreground: "#1c2819",    // Earthy black-green text
+    selection: "#d2e3c8"      // Pastel leaf selection
   },
-  warm: {
-    canvas: "#fbf8f3",
-    surface: "#f3ede3",
-    line: "#e2d7c5",
-    muted: "#8c7e6c",
-    accent: "#d97706",
-    foreground: "#292524",
-    selection: "#fde68a"
+
+  // Italian espresso & roasted coffee bean mood
+  espressoBar: {
+    canvas: "#1f1a17",        // Dark roasted espresso
+    surface: "#2c2522",       // Rich coffee bean
+    line: "#403632",          // Warm dark border
+    muted: "#a18d83",         // Cinnamon / steamed oat
+    accent: "#d97736",        // Toasted terracotta highlight
+    foreground: "#f5ebd9",    // Creamy foam text
+    selection: "#594235"      // Coffee crema selection
   },
+
+  // Fresh 90s editorial paper with rich ink & lavender pops
+  editorialPaper: {
+    canvas: "#f6f3ee",        // Off-white newsprint
+    surface: "#e8e3d9",       // Recycled cardstock
+    line: "#d1c7b7",          // Warm pencil rule
+    muted: "#665d54",         // Sepia text
+    accent: "#7c3aed",        // Electric ink violet
+    foreground: "#1a1615",    // Rich black ink
+    selection: "#ddd6fe"      // Soft lavender highlight
+  },
+
+  // Nordic coastal mist with frosted teal & navy
+  nordicMist: {
+    canvas: "#f0f4f5",        // Frosted morning mist
+    surface: "#dce6e8",       // Cool pebble tone
+    line: "#b8cbd0",          // Glacier line divider
+    muted: "#527580",         // Slate teal text
+    accent: "#0d9488",        // Deep fjord teal
+    foreground: "#0f2327",    // Deep navy black
+    selection: "#99f6e4"      // Ice mint selection
+  },
+
+  // Rich deep emerald with mint and sage accents
+  emeraldNight: {
+    canvas: "#091a13",        // Deep emerald forest shade
+    surface: "#102a1e",       // Dark pine card background
+    line: "#1f4735",          // Muted forest border
+    muted: "#6b9e85",         // Soft sage text
+    accent: "#34d399",        // Bright mint highlight
+    foreground: "#e6f4ed",    // Pale frosted green text
+    selection: "#134e35"      // Emerald glow selection
+  },
+
+  // Regal, luxurious dark gold and champagne
+  regalGold: {
+    canvas: "#14120e",        // Deep obsidian canvas
+    surface: "#211d16",       // Dark bronze surface
+    line: "#383124",          // Warm metallic border
+    muted: "#a39379",         // Antique gold text
+    accent: "#fbbf24",        // Radiant polished gold
+    foreground: "#f7f3e8",    // Soft champagne text
+    selection: "#45381d"      // Rich amber selection
+  },
+
+  // Elegant, moody mauve and velvet rose
+  velvetRose: {
+    canvas: "#1c1417",        // Deep plum-black
+    surface: "#2c1e23",       // Muted rosewood surface
+    line: "#452d36",          // Dusty mauve line
+    muted: "#a8818f",         // Soft rose text
+    accent: "#f472b6",        // Electric pink highlight
+    foreground: "#fce7f1",    // Pale blush text
+    selection: "#502837"      // Deep berry selection
+  },
+
+  // Soft cream with romantic cherry blossom pinks
+  sakuraBlossom: {
+    canvas: "#fdf8f9",        // Soft porcelain background
+    surface: "#f8e9ed",       // Soft cherry blossom card
+    line: "#edd0d8",          // Gentle rose border
+    muted: "#a0717e",         // Soft plum text
+    accent: "#db2777",        // Vivid raspberry accent
+    foreground: "#2a151b",    // Deep plum-black text
+    selection: "#fbcfe8"      // Pastel pink selection
+  },
+  
   // CHANGE HEX VALUES HERE TO USE CUSTOM COLORS
   custom: {
     canvas: "#fbf8f3",
@@ -72,7 +146,7 @@ const PORTFOLIO_THEME_PRESETS = {
 };
 
 // To use CUSTOM, change the hex codes above in the 'custom' list and set below line to "custom"
-const selectedTheme = "forest"; // CHANGE THIS to: "minimal", "ocean", "forest", or "warm".
+const selectedTheme = "emeraldNight"; // CHANGE THIS to: "nordicMist", "sakuraBlossom", "cyberpunk", or "regalGold".
 
 const customTheme = null; // Ignore line
 const chosenTheme =
