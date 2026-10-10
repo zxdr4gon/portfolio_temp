@@ -2,6 +2,8 @@
 
 A static portfolio template built with HTML, Tailwind CSS CDN, and JavaScript. It works on GitHub Pages.
 
+## DEMO - [https://zxdr4gon.github.io/portfolio_temp/]
+
 ## Files
 
 - `index.html` — layout and visual design. Most users should not need to edit this.
