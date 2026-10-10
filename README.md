@@ -15,7 +15,7 @@ A static portfolio template built with HTML, Tailwind CSS CDN, and JavaScript. I
 
 1. Open `config.js`.
 2. Replace `Your Name`, the short brand, bio, headings, email, and social URLs.
-3. Change the hex codes in the `theme` to configure the theme accordingly
+3. Change the hex codes in the `theme` to configure the theme accordingly (Theme takes ~1-2 minutes to update every time you change it)
 4. Update the `projects` array. Each project supports:
    - `title`: project name
    - `description`: short summary under the card
