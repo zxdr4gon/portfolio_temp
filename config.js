@@ -150,7 +150,7 @@ const selectedTheme = "emeraldNight"; // CHANGE THIS to: "nordicMist", "sakuraBl
 
 const customTheme = null; // Ignore line
 const chosenTheme =
-  customTheme || PORTFOLIO_THEME_PRESETS[selectedTheme] || PORTFOLIO_THEME_PRESETS.warm;
+  customTheme || PORTFOLIO_THEME_PRESETS[selectedTheme] || PORTFOLIO_THEME_PRESETS.custom;
 
 window.PORTFOLIO_CONFIG = {
   /* ------------------------------------------------------------------------
