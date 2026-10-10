@@ -16,22 +16,22 @@
 
 window.PORTFOLIO_CONFIG = {
   // Identity and browser tab
-  name: "Syed Zainulabideen Mahdi",
-  shortName: "ZAIN", // Short brand shown in the header. Set to "" to use name.
-  pageTitle: "ZX — Developer Portfolio",
+  name: "Your Name",
+  shortName: "YN", // Short brand shown in the header. Set to "" to use name.
+  pageTitle: "YN — My Portfolio",
   description: "Explore projects, experiments, and work by me.",
   themeColor: "#0b0d10",
 
   // Hero section
-  role: "Developer · ?Physicist · Student",
+  role: "Role · Role · Role",
   headlineStart: "Turning ideas into",
   headlineAccent: "things that work.",
-  bio: "I'm Zain, a developer who enjoys building useful tools, exploring new technologies, and solving interesting problems.",
+  bio: "MAKE UP YOUR BIO HERE",
   heroButton: "Explore my work",
   gallerySubtitle: "Projects, experiments & ideas",
 
   // Section headings
-  projectsKicker: "01 / Portfolio",
+  projectsKicker: "01 / Projects",
   projectsTitle: "Things I've built",
   projectsIntro: "From small experiments to full projects, here's what I've been working on.",
   contactKicker: "02 / Contact",
@@ -42,11 +42,11 @@ window.PORTFOLIO_CONFIG = {
   footerNote: "Built with curiosity.",
 
   // Contact and social links
-  email: "zx.mahdi09@gmail.com",
+  email: "your.email@example.com",
   socials: [
-    { label: "GitHub", url: "https://github.com/zxdr4gon" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/syed-zainulabideen-mahdi-2a5b80434/" },
-    { label: "Instagram", url: "https://instagram.com/zx_04.09" }
+    { label: "GitHub", url: "https://github.com/your-username" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/your-profile/" },
+    { label: "Instagram", url: "https://instagram.com/your-handle" }
     // Add more, for example:
     // { label: "YouTube", url: "https://youtube.com/@YOUR-USERNAME" }
   ],
@@ -54,38 +54,38 @@ window.PORTFOLIO_CONFIG = {
   // Project gallery — duplicate an entry to add another project.
   projects: [
     {
-      title: "Terminal Cricket",
-      description: "A retro-style hand cricket game in your browser. Toss, bat, bowl, chase targets, view match summaries, and have fun!",
+      title: "Project One",
+      description: "Description of your first project goes here. Explain what it does and the tech stack used.",
       category: "Featured game",
-      url: "https://zxdr4gon.github.io/cricket/",
-      image: "images/cterminal.png",
+      url: "https://github.com/your-username/project-one (or) [LINK TO PROJECT]",
+      image: "images/project-one.png",
       imageAlt: "Screenshot of Project One",
       tags: ["Python"]
     },
     {
-      title: "VectorBoard",
-      description: "An online digital canvas with a multitude of different features.",
+      title: "Project Two",
+      description: "Description of your second project goes here.",
       category: "Web application",
-      url: "https://zxdr4gon.github.io/vectorboard/",
-      image: "images/vectorboard.png",
+      url: "https://github.com/your-username/project-two",
+      image: "images/project-two.png",
       imageAlt: "Screenshot of Project Two",
       tags: ["JavaScript", "HTML"]
     },
     {
-      title: "Stats Site",
-      description: "A site that reads data from Google Sheets and displays it. For Maine East Cricket Team.",
+      title: "Project Three",
+      description: "Description of your third project goes here.",
       category: "Personal project",
-      url: "https://zxdr4gon.github.io/blue-demon-cricket/",
-      image: "images/bdcricket.png",
+      url: "https://github.com/your-username/project-three",
+      image: "images/project-three.png",
       imageAlt: "Screenshot of Project Three",
       tags: ["HTML", "JavaScript", "CSS"]
     },
     {
-      title: "AP Study Hub",
-      description: "Place for study guides for the AP exams of various subjects",
+      title: "Project Four",
+      description: "Description of your fourth project goes here.",
       category: "Personal Project",
-      url: "https://example.com/project-four",
-      image: "images/apstudy.png",
+      url: "https://github.com/your-username/project-four",
+      image: "images/project-four.png",
       imageAlt: "Screenshot of Project Four",
       tags: ["HTML", "AI"]
     }
