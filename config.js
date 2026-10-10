@@ -24,7 +24,7 @@ window.PORTFOLIO_CONFIG = {
 
   // Theme — change these values to restyle the whole portfolio.
   // Use hex colors (for example, "#5498FF").
-  ttheme: {
+  theme: {
   canvas: "#0d021a",        // Deep night purple
   surface: "#17082a",       // Dark violet surface
   line: "#311454",          // Muted plum border
