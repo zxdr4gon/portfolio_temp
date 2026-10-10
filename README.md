@@ -1,4 +1,4 @@
-# Replicable Developer Portfolio
+# [TEMPLATE] Developer Portfolio
 
 A static portfolio template built with HTML, Tailwind CSS CDN, and vanilla JavaScript. It works on GitHub Pages and does not need a build step.
 
@@ -26,10 +26,6 @@ A static portfolio template built with HTML, Tailwind CSS CDN, and vanilla JavaS
 
 You can add as many project objects as you want. To remove a card, remove that project object from the array. Keep commas between objects, but do not leave a comma after the last object if you want maximum compatibility with editors.
 
-## Test locally
-
-Keep `index.html`, `config.js`, and `app.js` in the same directory. Open `index.html` in a browser. If your browser blocks local file scripts, use VS Code's Live Server extension or test after uploading to GitHub Pages.
-
 ## Publish on GitHub Pages
 
 1. Create a repository on GitHub and upload `index.html`, `config.js`, `app.js`, and the `images/` folder.
@@ -39,10 +35,8 @@ Keep `index.html`, `config.js`, and `app.js` in the same directory. Open `index.
 
 ## Make a copy for a friend
 
-Friends can use **Use this template** (if enabled on the repository) or fork the repository, then change only `config.js` and the files in `images/`. Each person needs to publish their own repository using GitHub Pages.
+Friends can use **Use this template** or fork the repository, then change only `config.js` and the files in `images/`. Each person would need to publish their own repository using GitHub Pages.
 
-## Notes
+## Notice
 
-- This is a client-side static site; no passwords or secret keys belong in `config.js`.
-- External libraries and the optional Google font need an internet connection.
-- This template uses Tailwind's CDN for ease of use. For a larger production site, compile Tailwind CSS instead.
+- Make sure no passwords or confidential data is included in `config.js`.
