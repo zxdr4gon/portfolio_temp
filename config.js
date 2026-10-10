@@ -85,7 +85,7 @@ window.PORTFOLIO_CONFIG = {
      shortName is the small brand shown in the header. Use "" to use your name.
   ------------------------------------------------------------------------ */
   name: "[REPLACE] Your Name",
-  shortName: "[REPLACE] Nickname (OR SET to '' (empty)",
+  shortName: "[REPLACE] Nickname",
   pageTitle: "[REPLACE] Your Name — Portfolio",
   description: "[REPLACE] A short description of your portfolio.",
 
@@ -110,7 +110,7 @@ window.PORTFOLIO_CONFIG = {
   contactKicker: "02 / Contact",
   contactTitleStart: "Have an idea?",
   contactTitleAccent: "Let's connect.",
-  contactText: "REPLACE: Add a short invitation for visitors to get in touch.",
+  contactText: "[REPLACE] Add a short invitation for visitors to get in touch.",
   contactButton: "Say hello",
   footerNote: "Built with curiosity.",
 
