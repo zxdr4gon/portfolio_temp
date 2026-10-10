@@ -24,15 +24,15 @@ window.PORTFOLIO_CONFIG = {
 
   // Theme — change these values to restyle the whole portfolio.
   // Use hex colors (for example, "#5498FF").
-  theme: {
-    canvas: "#0b0d10",       // Page background
-    surface: "#111419",      // Contact panel and project surfaces
-    line: "#252a32",         // Borders and dividers
-    muted: "#9199a6",        // Secondary text
-    accent: "#5498FF",       // Highlights, links, and buttons
-    foreground: "#f8fafc",   // Main text and white-based utilities
-    selection: "#a3e635"     // Selected text and keyboard focus
-  },
+  ttheme: {
+  canvas: "#0d021a",        // Deep night purple
+  surface: "#17082a",       // Dark violet surface
+  line: "#311454",          // Muted plum border
+  muted: "#a482be",         // Soft lavender secondary text
+  accent: "#ff2a85",        // Electric hot pink
+  foreground: "#fcf7ff",    // Crisp bright white-violet
+  selection: "#00f5d4"      // Neon turquoise focus/selection
+},
 
   // Hero section
   role: "Role · Role · Role",
