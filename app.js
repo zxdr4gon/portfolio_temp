@@ -40,6 +40,7 @@
   $("brand-link").setAttribute("aria-label", `${name}, home`);
   $("nav-github").href = safeUrl((config.socials || []).find(s => /github/i.test(s.label))?.url || "https://github.com");
   $("nav-linkedin").href = safeUrl((config.socials || []).find(s => /linkedin/i.test(s.label))?.url || "https://linkedin.com");
+  $("nav-instagram").href = safeUrl((config.socials || []).find(s => /instagram/i.test(s.label))?.url || "https://instagram.com");
   $("header-contact").href = email ? `mailto:${email}` : "#contact-title";
 
   $("eyebrow").textContent = safeText(config.role, "Developer · Builder · Problem Solver");
