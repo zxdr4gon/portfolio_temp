@@ -2,13 +2,13 @@
 
 A beginner-friendly, static portfolio template built with HTML, JavaScript, and Tailwind CSS via CDN. There is **no build step or package installation**. Customize your site in `config.js`, preview it locally, and publish it with GitHub Pages.
 
-> **Example site:** [View the portfolio demo](https://zxdr4gon.github.io/portfolio/)
+> **Example site:** [View an example portfolio](https://zxdr4gon.github.io/portfolio/)
 
 ## Quick start
 
-1. **Get a copy** of this repository by forking it, using the template option if enabled, or downloading the files.
+1. **Get a copy** of this repository by forking it, using the template option.
 2. **Open `config.js`.** Replace the sample values marked `[REPLACE]` and remove the marker text.
-3. **Choose a theme.** Set `selectedTheme` to `"minimal"`, `"ocean"`, `"forest"`, `"warm"`, or `"custom"`.
+3. **Choose a theme.** Set `selectedTheme` to `"minimal"`, `"ocean"`, `"forest"`, `"warm"`, or `"custom"`. [Takes 1-2 minutes for the theme to update]
 4. **Add your projects.** Replace the example project titles, descriptions, links, and image paths. Remove any examples you don't want to show.
 5. **Preview locally.** Open `index.html` in your browser. An internet connection is needed to load Tailwind CSS and the Inter font from their CDNs.
 6. **Publish when ready.** Follow [Publish with GitHub Pages](#publish-with-github-pages).
@@ -97,10 +97,10 @@ For a project without a live demo, link to its repository. If you don't have a s
 
 1. Put screenshots in the `images/` folder.
 2. Give each file a clear name, such as `weather-app.png`.
-3. Use the exact path in `image`, including the file extension and capitalization.
+3. Use the exact path in `image`, including the file extension and capitalization for the image link in `config.js`.
 4. Write meaningful `imageAlt` text.
 
-Filenames can be case-sensitive after publishing, so `Weather-App.png` and `weather-app.png` may not refer to the same file.
+Filenames are case-sensitive after publishing, so `Weather-App.png` and `weather-app.png` may not refer to the same file.
 
 ## Preview locally
 
@@ -112,7 +112,7 @@ No local server is normally required for this static template. You do need an in
 
 ## Publish with GitHub Pages
 
-1. Create your own GitHub repository and add the template files, including `index.html`, `config.js`, `app.js`, and the `images/` folder.
+1. Create your own GitHub repository and add the template files, including `index.html`, `config.js`, `app.js`, and the `images/` folder or use this template and you'd only have to change the data in `config.js` and add your screenshots in `images/`
 2. Commit and push your personalized files to the `main` branch.
 3. Open the repository's **Settings → Pages**.
 4. Under **Build and deployment**, select **Deploy from a branch**.
@@ -121,7 +121,7 @@ No local server is normally required for this static template. You do need an in
 
 If your repository already has GitHub Pages configured, confirm that it is deploying from the branch and folder where your `index.html` file lives.
 
-## Before you publish
+## Checklist before you publish
 
 - [ ] Replaced every `[REPLACE]` marker and sample personal detail.
 - [ ] Removed or replaced all example projects.
@@ -132,7 +132,7 @@ If your repository already has GitHub Pages configured, confirm that it is deplo
 - [ ] Previewed the site locally and checked the layout on a narrow screen.
 - [ ] Confirmed GitHub Pages is enabled for your repository.
 
-## Troubleshooting
+## Troubleshooting and Frequent Issues
 
 **The page says the configuration is missing:** Make sure `config.js` is in the same folder as `index.html`.
 
@@ -146,7 +146,7 @@ If your repository already has GitHub Pages configured, confirm that it is deplo
 
 ## Share the template
 
-Friends can fork the repository, use the template option if it is enabled, or download a copy. They should personalize their own `config.js` and `images/` folder, then enable GitHub Pages for their own repository.
+Users can fork the repository, use the template option, or download a copy. They should personalize their own `config.js` and `images/` folder, then enable GitHub Pages for their own repository.
 
 ## Note
 
