@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Portfolio</title>
+  <meta name="description" content="A personal developer portfolio." />
+  <meta name="theme-color" content="#0b0d10" />
+
+  <!-- Tailwind CDN keeps this project build-tool-free for GitHub Pages. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#0b0d10",
+            surface: "#111419",
+            line: "#252a32",
+            muted: "#9199a6",
+            accent: "#a3e635"
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0b0d10; }
+    ::selection { color: #0b0d10; background: #a3e635; }
+    .project-card img { transition: transform 500ms ease, filter 500ms ease; }
+    .project-overlay { opacity: 0; transition: opacity 300ms ease; }
+    .project-card:hover img, .project-card:focus-visible img {
+      transform: scale(1.045); filter: brightness(.55);
+    }
+    .project-card:hover .project-overlay, .project-card:focus-visible .project-overlay { opacity: 1; }
+    .project-card:focus-visible { outline: 2px solid #a3e635; outline-offset: 5px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+
+  <!-- Personalize the site by editing config.js, not this file. -->
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+
+<body class="min-h-screen bg-canvas font-sans text-white antialiased">
+  <header class="border-b border-line">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-12" aria-label="Main navigation">
+      <a id="brand-link" href="#home" class="text-lg font-bold tracking-tight" aria-label="Home">
+        <span id="brand-name">Your Name</span><span class="text-accent">.</span>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm text-muted md:flex">
+        <a href="#projects" class="transition hover:text-white">Projects</a>
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a id="nav-github" class="transition hover:text-white" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a id="nav-linkedin" class="transition hover:text-white" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a id="nav-instagram" class="transition hover:text-white" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      </div>
+
+      <a id="header-contact" class="rounded-full border border-line px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">
+        Get in touch <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="mx-auto max-w-7xl px-5 pb-20 pt-24 sm:px-8 sm:pb-28 sm:pt-32 lg:px-12 lg:pt-36" aria-labelledby="hero-title">
+      <div class="mb-8 flex items-center gap-3">
+        <span class="h-2 w-2 rounded-full bg-accent"></span>
+        <p id="eyebrow" class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Developer · Builder · Problem Solver</p>
+      </div>
+
+      <h1 id="hero-title" class="max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-6xl lg:text-7xl">
+        Turning ideas into <span class="text-muted">things that work.</span>
+      </h1>
+
+      <div class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+        <p id="bio" class="max-w-xl text-base leading-7 text-muted sm:text-lg sm:leading-8"></p>
+        <a href="#projects" class="inline-flex w-fit shrink-0 items-center gap-3 text-sm font-semibold transition hover:text-accent">
+          <span id="hero-button-text">Explore my work</span>
+          <span class="flex h-10 w-10 items-center justify-center rounded-full border border-line text-lg" aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <div class="mt-16 border-t border-line pt-5">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <p class="text-xs font-medium uppercase tracking-[0.2em] text-muted">My work</p>
+          <p id="gallery-subtitle" class="text-xs text-muted">Projects & experiments</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="mx-auto max-w-7xl scroll-mt-10 px-5 pb-24 sm:px-8 lg:px-12" aria-labelledby="projects-title">
+      <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p id="projects-kicker" class="mb-3 text-sm font-medium text-accent">01 / Projects</p>
+          <h2 id="projects-title" class="text-3xl font-semibold tracking-tight sm:text-4xl">Things I've built<span class="text-muted">.</span></h2>
+        </div>
+        <p id="projects-intro" class="max-w-sm text-sm leading-6 text-muted">A selection of projects and experiments.</p>
+      </div>
+      <div id="project-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
+        <!-- Project cards are generated from the projects array in config.js. -->
+      </div>
+      <p id="no-projects" class="hidden rounded-xl border border-line p-6 text-sm text-muted">No projects have been added yet. Add projects to the projects array in config.js.</p>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:px-12" aria-labelledby="contact-title">
+      <div class="rounded-2xl border border-line bg-surface px-6 py-12 sm:px-12 sm:py-16">
+        <p id="contact-kicker" class="mb-4 text-sm font-medium text-accent">02 / Contact</p>
+        <h2 id="contact-title" class="max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Have an idea? <span class="text-muted">Let's connect.</span></h2>
+        <p id="contact-copy" class="mt-5 max-w-lg text-sm leading-7 text-muted sm:text-base">Interested in collaborating or just connecting? My inbox is open.</p>
+        <a id="contact-button" class="mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-canvas transition hover:bg-lime-300">
+          Say hello <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+      <p id="copyright" class="text-sm text-muted"></p>
+      <div id="footer-socials" class="flex flex-wrap items-center gap-6 text-sm text-muted"></div>
+    </div>
+  </footer>
+</body>
+</html>
