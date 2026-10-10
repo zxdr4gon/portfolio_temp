@@ -165,7 +165,7 @@
     tags.className = "mt-4 flex flex-wrap gap-2";
     (Array.isArray(project.tags) ? project.tags : []).forEach((tag) => {
       const chip = document.createElement("span");
-      chip.className = "rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs";
+      chip.className = "rounded-full border border-foreground/20 bg-foreground/10 px-3 py-1 text-xs";
       chip.textContent = `#${String(tag).replace(/^#/, "")}`;
       tags.append(chip);
     });
