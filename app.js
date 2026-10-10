@@ -53,7 +53,7 @@
   $("bio").textContent = safeText(config.bio, `I'm ${name}, and I enjoy building useful things.`);
   $("hero-button-text").textContent = safeText(config.heroButton, "Explore my work");
   $("gallery-subtitle").textContent = safeText(config.gallerySubtitle, "Projects, experiments & ideas");
-  $("projects-kicker").textContent = safeText(config.projectsKicker, "01 / Portfolio");
+  $("projects-kicker").textContent = safeText(config.projectsKicker, "01 / Projects");
   $("projects-title").replaceChildren(document.createTextNode(safeText(config.projectsTitle, "Things I've built")));
   const titleDot = document.createElement("span");
   titleDot.className = "text-muted";
