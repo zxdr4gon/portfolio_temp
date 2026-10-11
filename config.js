@@ -146,7 +146,7 @@ const PORTFOLIO_THEME_PRESETS = {
 };
 
 // To use CUSTOM, change the hex codes above in the 'custom' list and set below line to "custom"
-const selectedTheme = "emeraldNight"; // CHANGE THIS to: "nordicMist", "sakuraBlossom", "cyberpunk", or "regalGold".
+const selectedTheme = "sakuraBlossom"; // CHANGE THIS to: "nordicMist", "sakuraBlossom", "cyberpunk", or "regalGold".
 
 const customTheme = null; // Ignore line
 const chosenTheme =
