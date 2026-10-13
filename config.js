@@ -1,272 +1,150 @@
 /*
   PORTFOLIO CONFIGURATION
   =======================
+  Personalize the site by editing this file and the images/ folder.
+  You should not need to edit index.html or app.js.
 
-  START HERE
-  1. Replace the sample text marked "[REPLACE]".
-  2. Make sure you remove the '[REPLACE]' tag as well
-  3. Choose a theme by changing selectedTheme below.
-  4. Replace the sample project links and image filenames.
-  5. Remove any social links you do not use.
-
-  You should not need to edit index.html or app.js to personalize the site.
-  Keep the setting names below unchanged unless you also update app.js.
+  QUICK START
+  1. Replace the personal details and sample social URLs.
+  2. Pick a theme by setting selectedTheme.
+  3. Replace or remove the example projects.
+  4. Add screenshots to images/ and update each image path.
 */
 
-/* --------------------------------------------------------------------------
-   1. THEME PRESETS
-   --------------------------------------------------------------------------
-   Choose one preset using selectedTheme below:
-   "minimal", "ocean", "forest", or "warm".
-
-   To create your own theme instead, set customTheme to an object containing
-   ALL seven colors shown in the examples. Leave it as null to use a preset.
-*/
 const PORTFOLIO_THEME_PRESETS = {
-  // Deep space vibe with high-contrast electric indigo & purple highlights
-  cyberpunk: {
-    canvas: "#0d0e15",        // Deep space night
-    surface: "#181926",       // Elevated dark panel
-    line: "#2e3146",          // Muted grid line
-    muted: "#89b4fa",         // Soft periwinkle
-    accent: "#cba6f7",        // Neon violet accent
-    foreground: "#cdd6f4",    // Crisp light text
-    selection: "#f5e0dc"      // Warm glow highlight
+  // Restrained dark graphite with a warm gold accent (default)
+  graphiteGold: {
+    canvas: "#11110f", surface: "#191916", line: "#34332c",
+    muted: "#aaa69a", accent: "#e2bd70", foreground: "#f4f0e7",
+    selection: "#574522"
   },
-
-  // Retro 80s synthwave / dusk sunset feel
-  sunsetGlow: {
-    canvas: "#181124",        // Velvet dusk sky
-    surface: "#2a1b3d",       // Deep plum surface
-    line: "#442852",          // Soft magenta divider
-    muted: "#a885a8",         // Muted mauve
-    accent: "#ff6b6b",        // Coral pink highlight
-    foreground: "#f7d6e0",    // Creamy blush text
-    selection: "#e056fd"      // Electric orchid selection
+  // Cool, understated blue-gray
+  slateBlue: {
+    canvas: "#111820", surface: "#19232d", line: "#30404e",
+    muted: "#a0b0be", accent: "#8db8df", foreground: "#eef4f8",
+    selection: "#28445b"
   },
-
-  // Botanical / matcha tea inspired natural palette
-  matchaStudio: {
-    canvas: "#f4f6f0",        // Soft steamy white
-    surface: "#e3e8dc",       // Creamy matcha foam
-    line: "#c8d3bc",          // Sage leaf border
-    muted: "#6e7e65",         // Mossy secondary text
-    accent: "#3d5a36",        // Deep green tea leaves
-    foreground: "#1c2819",    // Earthy black-green text
-    selection: "#d2e3c8"      // Pastel leaf selection
+  // Dark evergreen with a quiet mint accent
+  evergreen: {
+    canvas: "#0d1713", surface: "#15231c", line: "#2c4034",
+    muted: "#a2b7aa", accent: "#83d3a7", foreground: "#eff7f1",
+    selection: "#294c39"
   },
-
-  // Italian espresso & roasted coffee bean mood
-  espressoBar: {
-    canvas: "#1f1a17",        // Dark roasted espresso
-    surface: "#2c2522",       // Rich coffee bean
-    line: "#403632",          // Warm dark border
-    muted: "#a18d83",         // Cinnamon / steamed oat
-    accent: "#d97736",        // Toasted terracotta highlight
-    foreground: "#f5ebd9",    // Creamy foam text
-    selection: "#594235"      // Coffee crema selection
+  // Warm paper and ink
+  paper: {
+    canvas: "#f7f5f0", surface: "#eeebe3", line: "#d8d2c5",
+    muted: "#68645b", accent: "#8a5b26", foreground: "#25241f",
+    selection: "#e4d1ac"
   },
-
-  // Fresh 90s editorial paper with rich ink & lavender pops
-  editorialPaper: {
-    canvas: "#f6f3ee",        // Off-white newsprint
-    surface: "#e8e3d9",       // Recycled cardstock
-    line: "#d1c7b7",          // Warm pencil rule
-    muted: "#665d54",         // Sepia text
-    accent: "#7c3aed",        // Electric ink violet
-    foreground: "#1a1615",    // Rich black ink
-    selection: "#ddd6fe"      // Soft lavender highlight
+  // Muted violet on deep charcoal
+  violet: {
+    canvas: "#14131a", surface: "#201e29", line: "#393546",
+    muted: "#b0a9c1", accent: "#c0a6f7", foreground: "#f4f0fb",
+    selection: "#43355f"
   },
-
-  // Nordic coastal mist with frosted teal & navy
-  nordicMist: {
-    canvas: "#f0f4f5",        // Frosted morning mist
-    surface: "#dce6e8",       // Cool pebble tone
-    line: "#b8cbd0",          // Glacier line divider
-    muted: "#527580",         // Slate teal text
-    accent: "#0d9488",        // Deep fjord teal
-    foreground: "#0f2327",    // Deep navy black
-    selection: "#99f6e4"      // Ice mint selection
-  },
-
-  // Rich deep emerald with mint and sage accents
-  emeraldNight: {
-    canvas: "#091a13",        // Deep emerald forest shade
-    surface: "#102a1e",       // Dark pine card background
-    line: "#1f4735",          // Muted forest border
-    muted: "#6b9e85",         // Soft sage text
-    accent: "#34d399",        // Bright mint highlight
-    foreground: "#e6f4ed",    // Pale frosted green text
-    selection: "#134e35"      // Emerald glow selection
-  },
-
-  // Regal, luxurious dark gold and champagne
-  regalGold: {
-    canvas: "#14120e",        // Deep obsidian canvas
-    surface: "#211d16",       // Dark bronze surface
-    line: "#383124",          // Warm metallic border
-    muted: "#a39379",         // Antique gold text
-    accent: "#fbbf24",        // Radiant polished gold
-    foreground: "#f7f3e8",    // Soft champagne text
-    selection: "#45381d"      // Rich amber selection
-  },
-
-  // Elegant, moody mauve and velvet rose
-  velvetRose: {
-    canvas: "#1c1417",        // Deep plum-black
-    surface: "#2c1e23",       // Muted rosewood surface
-    line: "#452d36",          // Dusty mauve line
-    muted: "#a8818f",         // Soft rose text
-    accent: "#f472b6",        // Electric pink highlight
-    foreground: "#fce7f1",    // Pale blush text
-    selection: "#502837"      // Deep berry selection
-  },
-
-  // Soft cream with romantic cherry blossom pinks
-  sakuraBlossom: {
-    canvas: "#fdf8f9",        // Soft porcelain background
-    surface: "#f8e9ed",       // Soft cherry blossom card
-    line: "#edd0d8",          // Gentle rose border
-    muted: "#a0717e",         // Soft plum text
-    accent: "#db2777",        // Vivid raspberry accent
-    foreground: "#2a151b",    // Deep plum-black text
-    selection: "#fbcfe8"      // Pastel pink selection
-  },
-  
-  // CHANGE HEX VALUES HERE TO USE CUSTOM COLORS
+  // Edit these seven values to build your own palette.
   custom: {
-    canvas: "#fbf8f3",
-    surface: "#f3ede3",
-    line: "#e2d7c5",
-    muted: "#8c7e6c",
-    accent: "#d97706",
-    foreground: "#292524",
-    selection: "#fde68a"
+    canvas: "#11110f", surface: "#191916", line: "#34332c",
+    muted: "#aaa69a", accent: "#e2bd70", foreground: "#f4f0e7",
+    selection: "#574522"
   }
 };
 
-// To use CUSTOM, change the hex codes above in the 'custom' list and set below line to "custom"
-const selectedTheme = "sakuraBlossom"; // CHANGE THIS to: "nordicMist", "sakuraBlossom", "cyberpunk", or "regalGold".
+// Available: "graphiteGold", "slateBlue", "evergreen", "paper", "violet", "custom"
+const selectedTheme = "graphiteGold";
 
-const customTheme = null; // Ignore line
-const chosenTheme =
-  customTheme || PORTFOLIO_THEME_PRESETS[selectedTheme] || PORTFOLIO_THEME_PRESETS.custom;
+// Leave null to use the selected preset. To override it, set this to an object
+// containing all seven color keys: canvas, surface, line, muted, accent,
+// foreground, and selection.
+const customTheme = null;
+const chosenTheme = customTheme || PORTFOLIO_THEME_PRESETS[selectedTheme] || PORTFOLIO_THEME_PRESETS.graphiteGold;
 
 window.PORTFOLIO_CONFIG = {
-  /* ------------------------------------------------------------------------
-     2. PERSONAL INFORMATION
-     Replace the sample values with your own details.
-     shortName is the small brand shown in the header. Use "" to use your name.
-  ------------------------------------------------------------------------ */
+  // PERSONAL DETAILS
   name: "[REPLACE] Your Name",
-  shortName: "[REPLACE] Nickname",
+  shortName: "[REPLACE] Your Name",
   pageTitle: "[REPLACE] Your Name — Portfolio",
-  description: "[REPLACE] A short description of your portfolio.",
+  description: "[REPLACE] A concise description of your work and interests.",
 
-  /* ------------------------------------------------------------------------
-     3. HERO SECTION
-     This is the first text visitors see on your portfolio.
-  ------------------------------------------------------------------------ */
-  role: "[REPLACE] Developer · Designer · Creator",
-  headlineStart: "Turning ideas into",
-  headlineAccent: "things that work.",
-  bio: "[REPLACE] Write 1–3 sentences about yourself or what you enjoy building.",
-  heroButton: "Explore my work",
+  // HERO
+  role: "[REPLACE] Developer · Designer · Student",
+  headlineStart: "Building things with",
+  headlineAccent: "purpose.",
+  bio: "[REPLACE] In two short sentences, describe what you build, what interests you, and what you are learning.",
+  heroButton: "Explore selected work",
   gallerySubtitle: "Projects, experiments & ideas",
 
-  /* ------------------------------------------------------------------------
-     4. SECTION TEXT
-     These are the headings and short descriptions for each section.
-  ------------------------------------------------------------------------ */
-  projectsKicker: "01 / Projects",
-  projectsTitle: "Things I've built",
-  projectsIntro: "A selection of projects and experiments I've worked on.",
-  contactKicker: "02 / Contact",
-  contactTitleStart: "Have an idea?",
-  contactTitleAccent: "Let's connect.",
-  contactText: "[REPLACE] Add a short invitation for visitors to get in touch.",
-  contactButton: "Say hello",
-  footerNote: "Built with curiosity.",
+  // PROJECT SECTION
+  projectsKicker: "01 / Portfolio",
+  projectsTitle: "Selected projects",
+  projectsIntro: "A few things I've built, explored, and learned from.",
 
-  /* ------------------------------------------------------------------------
-     5. THEME
-     Usually, only change selectedTheme near the top of this file.
-     To use your own colors, fill in customTheme instead.
-  ------------------------------------------------------------------------ */
-  theme: chosenTheme,
-
-  /* ------------------------------------------------------------------------
-     6. CONTACT AND SOCIAL LINKS
-     Replace the example email and URLs. Remove any social entries you don't
-     use. Use full URLs beginning with https://.
-  ------------------------------------------------------------------------ */
-  email: "[REPLACE] youremail@example.com",
-  socials: [
-    { label: "GitHub", url: "https://github.com/YOUR-USERNAME" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/YOUR-PROFILE" },
-    { label: "Instagram", url: "https://www.instagram.com/YOUR-HANDLE" }
-    // To add another social, create an entry
-    // Example: { label: "YouTube", url: "https://www.youtube.com/@YOUR-USERNAME" }
+  // ABOUT SECTION
+  aboutKicker: "02 / About",
+  aboutTitle: "A little about me.",
+  aboutText: "[REPLACE] Share a little context about your interests, how you approach building things, or what you hope to explore next.",
+  aboutLinks: [
+    // Optional links shown below the about text:
+    // { label: "GitHub", url: "https://github.com/YOUR-USERNAME" }
   ],
 
-  /* ------------------------------------------------------------------------
-     7. PROJECT GALLERY
-     Replace these sample projects with your own. Each entry supports:
-     - title: project name (required)
-     - description: short explanation shown under the title
-     - category: small label shown on the project image
-     - url: full URL to the live project or its repository
-     - image: path to a screenshot in images/, or "" for an automatic placeholder
-     - imageAlt: short description of the screenshot for accessibility
-     - tags: array of technologies or topics
+  // CONTACT
+  contactKicker: "03 / Contact",
+  contactTitle: "Let's make something useful.",
+  contactText: "Have a question, an idea, or a project in mind? Feel free to get in touch.",
+  contactButton: "Get in touch",
+  footerNote: "Made with care.",
 
-     To add a project, copy one complete object (including its braces and
-     commas), paste it into this array, and replace its values.
-     IMPORTANT: All projects below are examples. Replace or remove them before
-     publishing so you don't accidentally show sample content.
-  ------------------------------------------------------------------------ */
+  // THEME
+  theme: chosenTheme,
+
+  // CONTACT AND SOCIAL LINKS
+  email: "you@example.com",
+  socials: [
+    { label: "GitHub", url: "https://github.com/YOUR-USERNAME" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/YOUR-PROFILE" }
+    // Add or remove entries as needed.
+    // { label: "Instagram", url: "https://www.instagram.com/YOUR-HANDLE" }
+  ],
+
+  /*
+    PROJECTS
+    Required: title
+    Recommended: description, category, image, imageAlt, tags
+    Optional: url (live demo), sourceUrl (repository)
+    If you only have one link, set url to the live project or repository.
+    Set image to "" to use a generated placeholder while developing.
+  */
   projects: [
     {
-      // EXAMPLE 1: Python or data-analysis project
-      title: "[REPLACE] Python Data Project",
-      description: "[REPLACE] Describe the question this project explores and what you learned.",
-      category: "Data project",
-      url: "https://github.com/YOUR-USERNAME/YOUR-DATA-PROJECT",
-      image: "images/[REPLACE]-data-project.png",
-      imageAlt: "[REPLACE] Screenshot showing the data project",
-      tags: ["Python", "Data"]
-    },
-    {
-      // EXAMPLE 2: Website or web application
-      title: "[REPLACE] Web Application",
-      description: "[REPLACE] Explain what the app does and who it helps.",
+      title: "[REPLACE] Project One",
+      description: "[REPLACE] Explain what it does, who it helps, and one useful feature.",
       category: "Web application",
-      url: "https://github.com/YOUR-USERNAME/YOUR-WEB-APP",
-      image: "images/[REPLACE]-web-app.png",
-      imageAlt: "[REPLACE] Screenshot of the web application",
+      url: "https://github.com/YOUR-USERNAME/YOUR-PROJECT",
+      sourceUrl: "",
+      image: "",
+      imageAlt: "Screenshot of Project One",
       tags: ["JavaScript", "HTML", "CSS"]
     },
     {
-      // EXAMPLE 3: Game or interactive project
-      title: "[REPLACE] Small Game",
-      description: "[REPLACE] Describe the game and one interesting feature you built.",
-      category: "Game",
-      url: "https://github.com/YOUR-USERNAME/YOUR-GAME",
-      image: "images/[REPLACE]-game.png",
-      imageAlt: "[REPLACE] Screenshot of the game",
-      tags: ["Game", "JavaScript"]
+      title: "[REPLACE] Project Two",
+      description: "[REPLACE] Describe the problem you explored and what you built to address it.",
+      category: "Tool",
+      url: "",
+      sourceUrl: "https://github.com/YOUR-USERNAME/YOUR-PROJECT",
+      image: "",
+      imageAlt: "Screenshot of Project Two",
+      tags: ["Python"]
     },
     {
-      // EXAMPLE 4: Command-line tool or library (a live demo is not required)
-      title: "[REPLACE] Developer Tool",
-      description: "[REPLACE] Explain what the tool automates or makes easier.",
-      category: "Developer tool",
-      url: "https://github.com/YOUR-USERNAME/YOUR-TOOL",
-      image: "images/[REPLACE]-tool.png",
-      imageAlt: "[REPLACE] Screenshot or illustration of the tool",
-      tags: ["Python", "CLI"]
+      title: "[REPLACE] Project Three",
+      description: "[REPLACE] Highlight a feature or technical decision that makes this project interesting.",
+      category: "Experiment",
+      url: "",
+      sourceUrl: "https://github.com/YOUR-USERNAME/YOUR-PROJECT",
+      image: "",
+      imageAlt: "Screenshot of Project Three",
+      tags: ["Research", "Development"]
     }
-    // COPY-PASTE an entry here to showcase more projects
-    // MAKE SURE YOU REMEMBER A COMMA (,) AFTER EACH ENTRY
   ]
 };
