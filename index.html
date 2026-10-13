@@ -3,139 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personal portfolio." />
+  <meta name="theme-color" content="#14120e" />
+  <meta name="color-scheme" content="dark" />
   <title>Developer Portfolio</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta name="description" content="A personal developer portfolio." />
-  <meta name="theme-color" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CDN keeps this project build-tool-free for GitHub Pages. -->
+  <!-- Tailwind CDN keeps this template build-tool-free for GitHub Pages. -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            foreground: "var(--color-foreground)",
-            canvas: "var(--color-canvas)",  // Main background color
-            surface: "var(--color-surface)",  // Card background
-            line: "var(--color-line)",     // Border color
-            muted: "var(--color-muted)",    // Secondary text
-            accent: "var(--color-accent)"    // Accent highlight color
-          },
-          fontFamily: {
-            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
-          }
-        }
-      }
+      theme: { extend: {
+        colors: {
+          foreground: "var(--color-foreground)",
+          canvas: "var(--color-canvas)",
+          surface: "var(--color-surface)",
+          line: "var(--color-line)",
+          muted: "var(--color-muted)",
+          accent: "var(--color-accent)"
+        },
+        fontFamily: {
+          sans: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+          display: ["Space Grotesk", "DM Sans", "ui-sans-serif", "sans-serif"]
+        },
+        maxWidth: { "content": "76rem" }
+      }}
     };
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root { color-scheme: dark; }
+    html { background: var(--color-canvas); }
     body { background: var(--color-canvas); }
     ::selection { color: var(--color-canvas); background: var(--color-selection); }
-    .project-card img { transition: transform 500ms ease, filter 500ms ease; }
-    .project-overlay { opacity: 0; transition: opacity 300ms ease; }
-    .project-card:hover img, .project-card:focus-visible img {
-      transform: scale(1.045); filter: brightness(.55);
+    a { -webkit-tap-highlight-color: transparent; }
+    .eyebrow { letter-spacing: .16em; }
+    .project-image { transition: transform 500ms cubic-bezier(.2,.7,.2,1); }
+    .project-card:hover .project-image, .project-card:focus-within .project-image { transform: scale(1.035); }
+    .project-card { transition: border-color 180ms ease, transform 180ms ease; }
+    .project-card:hover { border-color: var(--color-accent); transform: translateY(-3px); }
+    .focus-ring:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+    .subtle-grid {
+      background-image: linear-gradient(to right, color-mix(in srgb, var(--color-line) 35%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--color-line) 35%, transparent) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
     }
-    .project-card:hover .project-overlay, .project-card:focus-visible .project-overlay { opacity: 1; }
-    .project-card:focus-visible { outline: 2px solid var(--color-selection); outline-offset: 5px; }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-      }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
 
-  <!-- Personalize the site by editing config.js, not this file. -->
+  <!-- Edit config.js to personalize the content and theme. -->
   <script src="./config.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
-
 <body class="min-h-screen bg-canvas font-sans text-foreground antialiased">
-  <header class="border-b border-line">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-12" aria-label="Main navigation">
-      <a id="brand-link" href="#home" class="text-lg font-bold tracking-tight" aria-label="Home">
-        <span id="brand-name">Your Name</span><span class="text-accent">.</span>
+  <a href="#main-content" class="focus-ring sr-only fixed left-4 top-4 z-50 rounded-lg bg-surface px-4 py-3 text-sm focus:not-sr-only">Skip to content</a>
+
+  <header class="sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-content items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Main navigation">
+      <a id="brand-link" href="#home" class="focus-ring inline-flex items-center gap-2 rounded-sm font-display text-lg font-semibold tracking-tight" aria-label="Home">
+        <span id="brand-mark" class="flex h-8 w-8 items-center justify-center rounded-lg border border-line bg-surface text-xs font-bold text-accent">Y.</span>
+        <span id="brand-name">Your Name</span>
       </a>
-
-      <div class="hidden items-center gap-8 text-sm text-muted md:flex">
-        <a href="#projects" class="transition hover:text-foreground">Projects</a>
-        <a href="#about" class="transition hover:text-foreground">About</a>
-        <a id="nav-github" class="transition hover:text-foreground" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a id="nav-linkedin" class="transition hover:text-foreground" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a id="nav-instagram" class="transition hover:text-foreground" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      <div class="hidden items-center gap-7 md:flex">
+        <a href="#projects" class="focus-ring rounded-sm text-sm text-muted transition hover:text-foreground">Work</a>
+        <a href="#about" class="focus-ring rounded-sm text-sm text-muted transition hover:text-foreground">About</a>
+        <div id="nav-socials" class="flex items-center gap-5 border-l border-line pl-6"></div>
       </div>
-
-      <a id="header-contact" class="rounded-full border border-line px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">
-        Get in touch <span aria-hidden="true">↗</span>
+      <a id="header-contact" href="#contact" class="focus-ring inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">
+        Contact <span aria-hidden="true">↗</span>
       </a>
     </nav>
   </header>
 
-  <main id="home">
-    <section class="mx-auto max-w-7xl px-5 pb-20 pt-24 sm:px-8 sm:pb-28 sm:pt-32 lg:px-12 lg:pt-36" aria-labelledby="hero-title">
-      <div class="mb-8 flex items-center gap-3">
-        <span class="h-2 w-2 rounded-full bg-accent"></span>
-        <p id="eyebrow" class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Developer · Builder · Problem Solver</p>
-      </div>
-
-      <h1 id="hero-title" class="max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-6xl lg:text-7xl">
-        Turning ideas into <span class="text-muted">things that work.</span>
-      </h1>
-
-      <div class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-        <p id="bio" class="max-w-xl text-base leading-7 text-muted sm:text-lg sm:leading-8"></p>
-        <a href="#projects" class="inline-flex w-fit shrink-0 items-center gap-3 text-sm font-semibold transition hover:text-accent">
-          <span id="hero-button-text">Explore my work</span>
-          <span class="flex h-10 w-10 items-center justify-center rounded-full border border-line text-lg" aria-hidden="true">↓</span>
-        </a>
-      </div>
-
-      <div class="mt-16 border-t border-line pt-5">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <p class="text-xs font-medium uppercase tracking-[0.2em] text-muted">My work</p>
-          <p id="gallery-subtitle" class="text-xs text-muted">Projects & experiments</p>
+  <main id="main-content">
+    <section id="home" class="relative isolate overflow-hidden">
+      <div aria-hidden="true" class="subtle-grid pointer-events-none absolute inset-x-0 top-0 -z-10 h-[34rem] opacity-60"></div>
+      <div class="mx-auto max-w-content px-5 pb-20 pt-24 sm:px-8 sm:pb-28 sm:pt-32 lg:px-10 lg:pb-32 lg:pt-40">
+        <div class="mb-8 flex items-center gap-3">
+          <span class="h-2 w-2 rounded-full bg-accent"></span>
+          <p id="eyebrow" class="eyebrow text-xs font-semibold uppercase text-muted">Developer · Designer · Creator</p>
+        </div>
+        <h1 id="hero-title" class="max-w-5xl font-display text-5xl font-medium leading-[1.04] tracking-[-0.055em] sm:text-7xl lg:text-[5.8rem]">
+          Building things with <span class="text-muted">purpose.</span>
+        </h1>
+        <div class="mt-9 flex flex-col gap-8 border-b border-line pb-10 sm:mt-12 sm:flex-row sm:items-end sm:justify-between sm:pb-12">
+          <p id="bio" class="max-w-2xl text-base leading-8 text-muted sm:text-lg"></p>
+          <a href="#projects" class="focus-ring inline-flex w-fit shrink-0 items-center gap-3 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-canvas transition hover:brightness-110">
+            <span id="hero-button-text">Explore selected work</span><span aria-hidden="true">↘</span>
+          </a>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-5">
+          <p class="eyebrow text-[10px] font-semibold uppercase text-muted">Selected work</p>
+          <p id="gallery-subtitle" class="text-xs text-muted">Projects, experiments & ideas</p>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="mx-auto max-w-7xl scroll-mt-10 px-5 pb-24 sm:px-8 lg:px-12" aria-labelledby="projects-title">
-      <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+    <section id="projects" class="scroll-mt-24 mx-auto max-w-content px-5 pb-24 sm:px-8 lg:px-10 lg:pb-32" aria-labelledby="projects-title">
+      <div class="mb-10 flex flex-col justify-between gap-5 sm:mb-12 sm:flex-row sm:items-end">
         <div>
-          <p id="projects-kicker" class="mb-3 text-sm font-medium text-accent">01 / Projects</p>
-          <h2 id="projects-title" class="text-3xl font-semibold tracking-tight sm:text-4xl">Things I've built<span class="text-muted">.</span></h2>
+          <p id="projects-kicker" class="eyebrow mb-3 text-[11px] font-semibold uppercase text-accent">01 / Portfolio</p>
+          <h2 id="projects-title" class="font-display text-3xl font-medium tracking-tight sm:text-4xl">Selected projects</h2>
         </div>
-        <p id="projects-intro" class="max-w-sm text-sm leading-6 text-muted">A selection of projects and experiments.</p>
+        <p id="projects-intro" class="max-w-md text-sm leading-7 text-muted"></p>
       </div>
-      <div id="project-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
-        <!-- Project cards are generated from the projects array in config.js. -->
+      <div id="project-grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:gap-7">
+        <!-- Cards are rendered from config.js. -->
       </div>
-      <p id="no-projects" class="hidden rounded-xl border border-line p-6 text-sm text-muted">No projects have been added yet. Add projects to the projects array in config.js.</p>
+      <p id="no-projects" class="hidden rounded-2xl border border-line bg-surface p-8 text-sm leading-7 text-muted">Your projects will appear here. Add them to the projects array in config.js.</p>
     </section>
 
-    <section class="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:px-12" aria-labelledby="contact-title">
-      <div class="rounded-2xl border border-line bg-surface px-6 py-12 sm:px-12 sm:py-16">
-        <p id="contact-kicker" class="mb-4 text-sm font-medium text-accent">02 / Contact</p>
-        <h2 id="contact-title" class="max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Have an idea? <span class="text-muted">Let's connect.</span></h2>
-        <p id="contact-copy" class="mt-5 max-w-lg text-sm leading-7 text-muted sm:text-base">Interested in collaborating or just connecting? My inbox is open.</p>
-        <a id="contact-button" class="mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-canvas transition hover:bg-accent">
-          Say hello <span aria-hidden="true">↗</span>
+    <section id="about" class="scroll-mt-24 border-y border-line bg-surface/40" aria-labelledby="about-title">
+      <div class="mx-auto grid max-w-content gap-8 px-5 py-16 sm:px-8 sm:py-20 md:grid-cols-[.7fr_1.3fr] lg:px-10 lg:py-24">
+        <div>
+          <p id="about-kicker" class="eyebrow mb-3 text-[11px] font-semibold uppercase text-accent">02 / About</p>
+          <h2 id="about-title" class="font-display text-3xl font-medium tracking-tight sm:text-4xl">A little about me.</h2>
+        </div>
+        <div class="max-w-2xl">
+          <p id="about-copy" class="text-base leading-8 text-muted sm:text-lg"></p>
+          <div id="about-links" class="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="scroll-mt-24 mx-auto max-w-content px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32" aria-labelledby="contact-title">
+      <div class="relative overflow-hidden rounded-3xl border border-line bg-surface px-6 py-10 sm:px-10 sm:py-14 lg:px-14">
+        <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full border border-line"></div>
+        <div aria-hidden="true" class="pointer-events-none absolute -right-8 -top-12 h-48 w-48 rounded-full border border-line"></div>
+        <p id="contact-kicker" class="eyebrow mb-4 text-[11px] font-semibold uppercase text-accent">03 / Contact</p>
+        <h2 id="contact-title" class="relative max-w-3xl font-display text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">Let's make something useful.</h2>
+        <p id="contact-copy" class="relative mt-5 max-w-xl text-sm leading-7 text-muted sm:text-base"></p>
+        <a id="contact-button" href="mailto:you@example.com" class="focus-ring relative mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-canvas transition hover:brightness-110">
+          Get in touch <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="border-t border-line">
-    <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
-      <p id="copyright" class="text-sm text-muted"></p>
-      <div id="footer-socials" class="flex flex-wrap items-center gap-6 text-sm text-muted"></div>
+    <div class="mx-auto flex max-w-content flex-col gap-5 px-5 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
+      <p id="copyright" class="text-xs leading-6 text-muted"></p>
+      <div id="footer-socials" class="flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-muted"></div>
     </div>
   </footer>
 </body>

@@ -1,153 +1,132 @@
 # Developer Portfolio Template
 
-A beginner-friendly, static portfolio template built with HTML, JavaScript, and Tailwind CSS via CDN. There is **no build step or package installation**. Customize your site in `config.js`, preview it locally, and publish it with GitHub Pages.
+A polished, responsive portfolio for GitHub Pages, built with HTML, Tailwind CSS via CDN, and vanilla JavaScript. There is no build step or package installation.
 
-> **Example site:** [View an example portfolio](https://zxdr4gon.github.io/portfolio/)
+**Live example:** https://zxdr4gon.github.io/portfolio_temp/
 
 ## Quick start
 
-1. **Get a copy** of this repository by forking it, using the template option.
-2. **Open `config.js`.** Replace the sample values marked `[REPLACE]` and remove the marker text.
-3. **Choose a theme.** Set `selectedTheme` to `"minimal"`, `"ocean"`, `"forest"`, `"warm"`, or `"custom"`. [Takes 1-2 minutes for the theme to update]
-4. **Add your projects.** Replace the example project titles, descriptions, links, and image paths. Remove any examples you don't want to show.
-5. **Preview locally.** Open `index.html` in your browser. An internet connection is needed to load Tailwind CSS and the Inter font from their CDNs.
-6. **Publish when ready.** Follow [Publish with GitHub Pages](#publish-with-github-pages).
+1. Fork this repository or use **Use this template** to create your own copy.
+2. Open `config.js` and replace the `[REPLACE]` values with your details.
+3. Choose a theme by setting `selectedTheme`.
+4. Replace the example project entries with your own projects.
+5. Add screenshots to `images/` and update the matching image paths.
+6. Enable GitHub Pages in **Settings → Pages**, selecting the `main` branch and `/(root)`.
 
-Most personalization should only require `config.js` and files in `images/`. You should not need to edit `index.html` or `app.js`.
+Most customization should only require `config.js` and the `images/` folder. You should not need to edit `index.html` or `app.js`.
 
-## Repository files
+## Files
 
-- `index.html` — page layout and visual design.
-- `config.js` — personal details, section text, theme, social links, and project list.
-- `app.js` — reads the configuration and renders the portfolio.
-- `images/` — place your project screenshots here.
+- `index.html` — page structure and visual design.
+- `config.js` — personal information, copy, theme, social links, and projects.
+- `app.js` — reads the configuration and renders the content.
+- `images/` — screenshots and optional favicon.
 
-## Personalize `config.js`
+## Choose a theme
 
-The file is organized into labeled sections. Keep the existing setting names and object structure intact.
-
-### 1. Personal information and hero
-
-Replace the values marked `[REPLACE]`, including:
-
-- `name` — your name.
-- `shortName` — short text shown in the header; set it to `""` to use your name instead.
-- `pageTitle` — text shown in the browser tab.
-- `description` — short page description.
-- `role` and `bio` — your headline and introduction.
-
-You can also edit the hero button text and section headings to match your style. The `[REPLACE]` marker is instructional placeholder text; remove it when entering your real content.
-
-### 2. Choose a theme
-
-Near the top of `config.js`, find:
+Near the top of `config.js`, edit:
 
 ```js
-const selectedTheme = "forest";
+const selectedTheme = "graphiteGold";
 ```
 
-Change the value to one of these presets:
+Available presets:
 
-| Theme | Style |
+| Name | Style |
 | --- | --- |
-| `"minimal"` | Neutral, understated tones |
-| `"ocean"` | Cool blues |
-| `"forest"` | Muted greens |
-| `"warm"` | Cream and amber |
-| `"custom"` | Your own colors, edited in the `custom` theme object |
+| `graphiteGold` | Dark graphite with a restrained gold accent (default) |
+| `slateBlue` | Cool blue-gray |
+| `evergreen` | Deep green with a mint accent |
+| `paper` | Warm light background and ink-colored text |
+| `violet` | Dark charcoal with muted violet |
+| `custom` | Your own palette |
 
-Use the exact theme name, including quotation marks. The preset applies a coordinated set of seven colors.
+Use the exact name, including capitalization. To customize colors, edit the seven values in the `custom` object and set `selectedTheme = "custom"`. Alternatively, set `customTheme` to an object with all seven keys: `canvas`, `surface`, `line`, `muted`, `accent`, `foreground`, and `selection`. Each value must be a valid 3- or 6-digit hex color.
 
-**Custom colors:** In `PORTFOLIO_THEME_PRESETS`, edit the seven color values inside `custom`, then set `selectedTheme` to `"custom"`. Use valid 3- or 6-digit hex colors, such as `"#2563eb"`. The color keys are `canvas`, `surface`, `line`, `muted`, `accent`, `foreground`, and `selection`. Keep all seven keys.
+## Personal details
 
-### 3. Contact and social links
+Update these fields in `config.js`:
 
-Replace the sample email and profile URLs with your own. Remove any social entries you don't use by deleting the corresponding object from the `socials` array.
+- `name` and `shortName` — name shown in the footer and header.
+- `pageTitle` — browser tab title.
+- `description` — short search/social preview description.
+- `role`, `headlineStart`, `headlineAccent`, and `bio` — hero text.
+- `aboutText` — short personal introduction.
+- `email` — contact address.
+- `socials` — the social profiles you actually use.
 
-Use full URLs beginning with `https://`. The sample URLs are examples, not real profile links.
+Delete any social entry you don't need. Navigation links are generated from this list, so unused social buttons won't appear. Replace every sample URL before publishing.
 
-### 4. Add and edit projects
+## Projects
 
-The configuration includes four examples to demonstrate different kinds of work:
+Each item in the `projects` array supports:
 
-- Python or data-analysis project
-- Website or web application
-- Game or interactive project
-- Command-line tool or library
-
-**These are examples, not real projects.** Replace them with your own work or remove any examples you don't need before publishing. Check that every project link points to a real destination.
-
-Each project uses these fields:
-
-| Field | What to enter |
+| Field | Purpose |
 | --- | --- |
-| `title` | Project name. Required for the card to render. |
-| `description` | Short explanation shown under the project title. |
-| `category` | Small category label shown over the image. |
-| `url` | Full URL to your live project or source repository. |
-| `image` | Image path, such as `"images/weather-app.png"`. Use `""` for an automatic placeholder. |
-| `imageAlt` | Short description of the screenshot for accessibility. |
-| `tags` | Array of technologies or topics, such as `["Python", "Flask"]`. |
+| `title` | Project name. Required. |
+| `description` | Explain what it does and a feature or problem it addresses. |
+| `category` | Short type label, such as “Web application” or “Data project”. |
+| `url` | Live preview or main project link. |
+| `sourceUrl` | Optional source-code repository link. |
+| `image` | Screenshot path, such as `images/weather-app.webp`. Use `""` for a placeholder. |
+| `imageAlt` | Short description of the screenshot. |
+| `tags` | Technologies or topics, such as `["JavaScript", "CSS"]`. |
 
-To add a project, copy one complete object in the `projects` array, paste it into the array, and replace its values. Keep a comma between adjacent objects, but do not put a comma after the final object.
+To add a project, copy one object in the array and change its values. Keep a comma between adjacent objects, but not after the last object. Delete any sample projects you don't need. A project with no link will display without broken or generic external links.
 
-For a project without a live demo, link to its repository. If you don't have a screenshot yet, set `image` to an empty string (`""`) so the site generates a placeholder. The placeholder is useful during setup, but a real screenshot usually makes a stronger portfolio.
+### Writing project descriptions
 
-### 5. Add project screenshots
+Aim for one or two specific sentences. Explain what the project does, what you built, and a notable feature or challenge. Avoid descriptions like “a website with many features.” A real screenshot and working demo are more persuasive than a generic placeholder.
 
-1. Put screenshots in the `images/` folder.
-2. Give each file a clear name, such as `weather-app.png`.
-3. Use the exact path in `image`, including the file extension and capitalization for the image link in `config.js`.
-4. Write meaningful `imageAlt` text.
+### Screenshots
 
-Filenames are case-sensitive after publishing, so `Weather-App.png` and `weather-app.png` may not refer to the same file.
+1. Put each screenshot in `images/`.
+2. Use clear filenames and match the exact capitalization in `config.js`.
+3. Prefer consistent landscape screenshots. WebP usually gives smaller files than PNG for screenshots.
+4. Add meaningful `imageAlt` text.
 
-## Preview locally
+If an image is missing, the page falls back to a generated placeholder. Replace it with a real screenshot before treating the portfolio as finished.
 
-1. Save your changes to `config.js`.
-2. Open `index.html` in a modern browser.
-3. Check the headline, project cards, theme colors, images, and links.
+## About section
 
-No local server is normally required for this static template. You do need an internet connection for the Tailwind CSS and Google Fonts CDN resources. If a screenshot is missing, check its filename and path; an automatic placeholder should appear when the image cannot load.
+Edit `aboutText` to describe your interests and what you enjoy exploring. You can optionally add links in `aboutLinks`:
 
-## Publish with GitHub Pages
+```js
+aboutLinks: [
+  { label: "GitHub", url: "https://github.com/YOUR-USERNAME" },
+  { label: "Resume", url: "https://example.com/resume.pdf" }
+],
+```
 
-1. Create your own GitHub repository and add the template files, including `index.html`, `config.js`, `app.js`, and the `images/` folder or use this template and you'd only have to change the data in `config.js` and add your screenshots in `images/`
-2. Commit and push your personalized files to the `main` branch.
-3. Open the repository's **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Choose the `main` branch and the `/(root)` folder, then save.
-6. Wait for GitHub Pages to finish deploying, then open the URL shown in the Pages settings.
+Remove the example links or replace them with real destinations before publishing.
 
-If your repository already has GitHub Pages configured, confirm that it is deploying from the branch and folder where your `index.html` file lives.
+## Preview and publish
 
-## Checklist before you publish
+### Preview
 
-- [ ] Replaced every `[REPLACE]` marker and sample personal detail.
-- [ ] Removed or replaced all example projects.
-- [ ] Replaced placeholder GitHub, social, and email links.
-- [ ] Chosen a theme.
-- [ ] Added screenshots or intentionally left image paths empty.
-- [ ] Checked every project and social link.
-- [ ] Previewed the site locally and checked the layout on a narrow screen.
-- [ ] Confirmed GitHub Pages is enabled for your repository.
+Open `index.html` in a modern browser. If local file restrictions interfere with JavaScript, use VS Code's Live Server extension. Tailwind CSS and the fonts are loaded from online CDNs, so an internet connection is required for the intended appearance.
 
-## Troubleshooting and Frequent Issues
+### GitHub Pages
 
-**The page says the configuration is missing:** Make sure `config.js` is in the same folder as `index.html`.
+1. Commit your files to the `main` branch.
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select `main` and `/(root)`, then save.
+5. Wait for the deployment and visit the URL shown in the Pages settings.
 
-**The theme does not load:** Check that `selectedTheme` matches one of the available names and that all seven custom colors use valid hex values.
+## Before publishing
 
-**An image is missing:** Check the filename, extension, capitalization, and path in the `images/` folder. Use `image: ""` to show a generated placeholder.
+- [ ] Replace all `[REPLACE]` values.
+- [ ] Remove example projects and placeholder links.
+- [ ] Set a real email address and only the social profiles you use.
+- [ ] Choose a theme.
+- [ ] Add real screenshots and accurate alt text.
+- [ ] Check all live-preview and source links.
+- [ ] Test the site on desktop and mobile.
+- [ ] Confirm GitHub Pages is enabled.
 
-**A link goes to the wrong place:** Replace the sample URL with the full URL for your actual project or profile.
+## Notes
 
-**Styling or fonts look different offline:** The template loads Tailwind CSS and Inter from online CDNs, so those resources need an internet connection.
-
-## Share the template
-
-Users can fork the repository, use the template option, or download a copy. They should personalize their own `config.js` and `images/` folder, then enable GitHub Pages for their own repository.
-
-## Note
-
-Do not put passwords, API keys, or other confidential information in `config.js`. It is a public client-side file when published.
+- This is a static, client-side site. Never put passwords, API keys, or confidential information in `config.js`.
+- The Tailwind CDN is convenient for a no-build template. For a larger production site, compiling Tailwind into a local CSS file is more efficient.
+- Keep `index.html`, `config.js`, and `app.js` in the same directory.
