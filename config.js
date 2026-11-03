@@ -6,7 +6,7 @@
 
   QUICK START
   1. Replace the personal details and sample social URLs.
-  2. Pick a theme by setting selectedTheme.
+  2. Pick a theme by setting selectedTheme (and optionally alternateTheme).
   3. Replace or remove the example projects.
   4. Add screenshots to images/ and update each image path.
 */
@@ -53,6 +53,12 @@ const PORTFOLIO_THEME_PRESETS = {
 // Available: "graphiteGold", "slateBlue", "evergreen", "paper", "violet", "custom"
 const selectedTheme = "graphiteGold";
 
+// Optional second palette. Pair a dark theme with a light one (or the other way
+// round) and visitors get a light/dark toggle in the header; the site follows
+// their device setting until they pick one. Set to null to always use
+// selectedTheme only.
+const alternateTheme = "paper";
+
 // Leave null to use the selected preset. To override it, set this to an object
 // containing all seven color keys: canvas, surface, line, muted, accent,
 // foreground, and selection.
@@ -97,6 +103,7 @@ window.PORTFOLIO_CONFIG = {
 
   // THEME
   theme: chosenTheme,
+  alternateTheme: (alternateTheme && PORTFOLIO_THEME_PRESETS[alternateTheme]) || null,
 
   // CONTACT AND SOCIAL LINKS
   email: "you@example.com",
@@ -111,7 +118,9 @@ window.PORTFOLIO_CONFIG = {
     PROJECTS
     Required: title
     Recommended: description, category, image, imageAlt, tags
-    Optional: url (live demo), sourceUrl (repository)
+    Optional: url (live demo), sourceUrl (repository),
+              imageSmall (a ~640px-wide copy of the screenshot that phones load instead)
+    Tags automatically become filter buttons above the project grid.
     If you only have one link, set url to the live project or repository.
     Set image to "" to use a generated placeholder while developing.
   */
