@@ -371,39 +371,43 @@
   }
 
   /* ---------- Installable app ---------- */
+  // A quiet "Install app" link in the footer. Chrome/Edge hand us a prompt;
+  // other browsers (and iPhone Safari) get a short how-to instead.
+  const installWrap = $("install-wrap");
   const installButton = $("install-button");
-  const isStandalone = () => window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const installHint = $("install-hint");
+  const standaloneQuery = window.matchMedia("(display-mode: standalone)");
+  const isStandalone = () => standaloneQuery.matches || navigator.standalone === true;
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const syncInstall = () => { installWrap.hidden = isStandalone(); };
+  syncInstall();
+  standaloneQuery.addEventListener?.("change", syncInstall);
+
   let deferredPrompt = null;
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
     deferredPrompt = event;
-    installButton.hidden = false;
+    installHint.hidden = true;
   });
   installButton.addEventListener("click", async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    installButton.hidden = true;
-    if (outcome === "accepted") toast("Installing…");
+    if (deferredPrompt) {
+      const prompt = deferredPrompt;
+      deferredPrompt = null;
+      prompt.prompt();
+      const { outcome } = await prompt.userChoice;
+      if (outcome === "accepted") { installWrap.hidden = true; toast("Installing…"); }
+      return;
+    }
+    installHint.textContent = isIOS
+      ? "In Safari, tap Share, then Add to Home Screen."
+      : "Use your browser menu's Install app or Add to home screen.";
+    installHint.hidden = !installHint.hidden;
   });
   window.addEventListener("appinstalled", () => {
-    installButton.hidden = true;
+    deferredPrompt = null;
+    installWrap.hidden = true;
     toast("Installed. Find it on your home screen.");
   });
-
-  // iPhone/iPad Safari has no install prompt, so offer a one-time hint.
-  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  if (isIOS && !isStandalone()) {
-    let seen = false;
-    try { seen = localStorage.getItem("portfolio-ios-hint") === "1"; } catch { /* ignore */ }
-    if (!seen) {
-      setTimeout(() => {
-        toast("Tip: tap Share, then “Add to Home Screen” to install this app", { label: "Got it", run: () => {} });
-        try { localStorage.setItem("portfolio-ios-hint", "1"); } catch { /* ignore */ }
-      }, 4000);
-    }
-  }
 
   /* ---------- Offline support ---------- */
   window.addEventListener("offline", () => toast("You're offline. Saved pages still work."));

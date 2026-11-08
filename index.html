@@ -69,9 +69,6 @@
         <div id="nav-socials" class="nav-socials"></div>
       </div>
       <div class="nav-actions">
-        <button id="install-button" class="pill-button focus-ring" type="button" hidden>
-          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span>Install app</span>
-        </button>
         <button id="theme-toggle" class="icon-button focus-ring" type="button" aria-label="Switch color theme" hidden>
           <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
           <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
@@ -158,7 +155,13 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p id="copyright" class="footer-note"></p>
+      <div class="footer-meta">
+        <p id="copyright" class="footer-note"></p>
+        <div id="install-wrap" class="footer-install" hidden>
+          <button id="install-button" class="footer-link focus-ring" type="button">Install app</button>
+          <p id="install-hint" class="footer-note" hidden></p>
+        </div>
+      </div>
       <div id="footer-socials" class="footer-socials"></div>
     </div>
   </footer>

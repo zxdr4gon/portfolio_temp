@@ -8,7 +8,7 @@
   Bump VERSION when you change the files listed in SHELL (or this file) to
   clear old caches for returning visitors.
 */
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE = `portfolio-${VERSION}`;
 const SHELL = [
   "./",
